@@ -1,0 +1,41 @@
+.menu-title {
+    border-left: 1px solid #fff;
+    padding-left: 1rem;
+    color: #fff;
+    transition: border-left .15s;
+    margin-bottom: 1rem;
+}
+
+.menu-title:hover{
+    border-left: 5px solid #fff;
+}
+
+.card {
+    transition: width .25s;
+    cursor: pointer;
+    padding-left: 0rem;
+    transition: padding .25s;
+}
+
+.nav-link:hover {
+    color: #dc3545 !important;
+}
+
+.card-title, .nav-link {
+    transition: color .25s;
+}
+
+.card:hover {
+    width: 100%;
+    padding-left: .65rem;
+}
+
+.card:hover .card-title {
+    color: #dc3545;
+}
+
+.fa-logo-adjust {
+    position:relative;
+    top: 0px;
+    left: .25rem;
+}

@@ -1,0 +1,28 @@
+{
+  "name": "edge-2",
+  "version": "1.5.0",
+  "description": "A simple way to play videos and listen music at home on your RaspberryPI or other Windows/Mac/Linux systems.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasonverbeek/nodejslinuxde.git"
+  },
+  "author": "Jason Verbeek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jasonverbeek/nodejslinuxde/issues"
+  },
+  "homepage": "https://github.com/jasonverbeek/nodejslinuxde#readme",
+  "dependencies": {
+    "bootstrap": "^4.0.0-beta.2",
+    "drivelist": "^5.2.7",
+    "electron": "^1.7.9",
+    "formidable": "^1.1.1",
+    "jquery": "^1.12.4",
+    "popper.js": "^1.12.9"
+  }
+}

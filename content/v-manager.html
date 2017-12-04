@@ -1,0 +1,64 @@
+<h1 class='menu-title'>Import movies</h1>
+<!--  -->
+<div id="refresh-event"></div>
+<div id="drive-cards">
+</div>
+<h1 class='menu-title'>Edit Movies</h1>
+<div class="card mb-2">
+    <div class="card-body text-white rounded bg-dark">
+        <h4 class="card-title">No movies</h4>
+        <h6 class="card-subtitle mb-2 text-muted">No movies have been imported yet, why not give it a try?</h6>
+    </div>
+</div>
+<script type="text/javascript">
+    var $ = require('jquery');
+    var memory_drives = [];
+    function card(drive, isDrive){
+        let name = drive.description;
+        let mounts = drive.mountpoints;
+        if (mounts.length == 0 && isDrive)
+            return ""
+        let html = `\
+<div class="card mb-2 class">\
+    <div class="card-body text-white rounded bg-dark">\
+        <h4 class="card-title">${name}</h4>`;
+        if (mounts.length == 0) {
+            html += `<h6 class="card-subtitle mb-2 text-muted"><em>No mount point</em></h6>`;
+        } else {
+            let device = drive.device;
+            let path = mounts[0].path;
+            html += `<h6 class="card-subtitle mb-2 text-muted"><em>Device "${device}" mounted on "${path}".</em></h6>`;
+        }
+        html += '</div></div>';
+        return html;
+    }
+    $(card({
+        description: "No USB drives mounted.",
+        mountpoints: []
+    }, false)).appendTo("#drive-cards");
+    const {list} = require('drivelist');
+    function refreshDrives() {
+
+    }
+    list((error, drives) => {
+        let allowedDrives = [];
+        drives.forEach(drive => {
+            if (!drive.system)
+                allowedDrives.push(drive);
+        });
+        //allowedDrives = drives;
+        $("#drive-cards").html("");
+        allowedDrives.forEach(drive => {
+            $(card(drive, true)).appendTo("#drive-cards");
+        });
+        if (allowedDrives.length == 0)
+            $(card({
+                description: "No USB drives mounted.",
+                mountpoints: []
+            }, false)).appendTo("#drive-cards");
+    });
+
+</script>
+
+
+
